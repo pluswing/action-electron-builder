@@ -129,8 +129,9 @@ const runAction = () => {
 	const cmd = useVueCli ? "vue-cli-service electron:build" : "electron-builder";
 	for (let i = 0; i < maxAttempts; i += 1) {
 		try {
+			const universal = platform == "mac" ? "--universal" : "";
 			run(
-				`${useNpm ? "npm exec" : "yarn run"} ${cmd} --${platform} ${
+				`${useNpm ? "npm exec" : "yarn run"} ${cmd} --${platform} ${universal} ${
 					release ? "--publish always" : ""
 				} ${args}`,
 				appRoot,
