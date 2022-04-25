@@ -132,7 +132,7 @@ const runAction = () => {
 			const universal = platform == "mac" ? "--universal" : "";
 			run(
 				`${useNpm ? "npm exec" : "yarn run"} ${cmd} ${platform == "mac" ? "--" : ""} --${platform} ${universal} ${
-					release ? "--publish always" : ""
+					release ? "--publish=always" : ""
 				} ${args}`,
 				appRoot,
 			);
